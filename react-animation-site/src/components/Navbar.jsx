@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { menuDate } from '../data/MenuDate';
 import { Button } from './Button';
+import { FaBars } from 'react-icons/fa'
 
 const Nav = styled.nav`
     height: 60px;
@@ -30,14 +31,28 @@ const Logo = styled(Link)`
     font-style: italic;
 `;
 
-const MenuBar = styled.i`
+const MenuBar = styled(FaBars)`
     display: none;
+
+    @media screen and (max-width: 768px){
+        display: block;
+        height: 40px;
+        width: 40px;
+        cursor: pointer;
+        top:0;
+        right: 0;
+        transform: translate(-50%, -10%)
+    }
 `;
 
 const NavMenu = styled.div`
     display: flex;
     align-items: center;
     margin-right: -48px;
+
+    @media screen and (max-width: 768px){
+        display: none;
+    }
 `;
 
 const NavMenuLinks = styled(Link)`
@@ -48,6 +63,10 @@ const NavBtn = styled.div`
 display: flex;
 align-items: center;
 margin-right: 24px;
+
+@media screen and (max-width: 768px){
+    display: none;
+}
 `;
 
 const Navbar = () => {
