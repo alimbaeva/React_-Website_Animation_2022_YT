@@ -13,7 +13,6 @@ const Nav = styled.nav`
     z-index:100;
     position: fixed;
     width: 100%;
-    background:red;
 `;
 
 const NavLink = css`
@@ -69,11 +68,11 @@ margin-right: 24px;
 }
 `;
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
     return (
         <Nav>
             <Logo to='/'>EXLIT</Logo>
-            <MenuBar />
+            <MenuBar onClick={toggle} />
             <NavMenu>
                 {menuDate.map((item, index) => (
                     <NavMenuLinks to={item.link} key={index}>
