@@ -16,8 +16,8 @@ const DropdownContainer = styled.div`
     top: 0;
     left: 0;
     transition: 0.3s ease-in-out;
-    opasity: 0;
-    top: 0;
+    opaсity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+    top: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
 `;
 
 const Icon = styled.div`
