@@ -68,11 +68,11 @@ margin-right: 24px;
 }
 `;
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
     return (
         <Nav>
             <Logo to='/'>EXLIT</Logo>
-            <MenuBar />
+            <MenuBar onClick={toggle} />
             <NavMenu>
                 {menuDate.map((item, index) => (
                     <NavMenuLinks to={item.link} key={index}>
