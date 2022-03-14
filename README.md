@@ -212,4 +212,6 @@ const NextArrow = styled(IoArrowForward)`
 `
 ```
 
-Написанная стиль в переменной _arrowButtons_ ползуется с двумя иконками.
+Написанная стиль в переменной _arrowButtons_ пользуется с двумя иконками.
+
+
