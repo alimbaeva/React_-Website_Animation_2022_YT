@@ -164,3 +164,52 @@ import { Button } from './Button';
   </Button>
 ```
 
+
+**Можно стилизовать иконки импортированные из разных библиотек**
+
+```
+import { IoMdArrowRoundForward } from 'react-icons/io';
+
+
+const Arrow = styled(IoMdArrowRoundForward)`
+    margin-left:0.5rem;
+`;
+
+```
+
+**Использовать переменные стили**
+
+
+```
+
+import { IoArrowForward, IoArrowBack } from 'react-icons/io5';
+
+
+const arrowButtons = css`
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    cursor: pointer;
+    background: #000d1a;
+    border-radius: 50px;
+    padding: 10px;
+    margin-right: 1rem;
+    user-select: none;
+    transition: .3s;
+
+    &:hover {
+        background: #cd853f;
+        transform: scale(1.05);
+    }
+`;
+
+const PrevArrow = styled(IoArrowBack)`
+    ${arrowButtons}
+`;
+
+const NextArrow = styled(IoArrowForward)`
+    ${arrowButtons}
+`
+```
+
+Написанная стиль в переменной _arrowButtons_ ползуется с двумя иконками.
