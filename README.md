@@ -62,11 +62,35 @@ const Container = styled.div`
         grid-template-columns: 1fr;
     }
 `;
+
+const ColumnRight = styled.div`
+    padding: 1rem 2rem;
+    order: ${({ reverse }) => (reverse ? '1' : '2')};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 768px){
+        order: ${({ reverse }) => (reverse ? '2' : '1')};
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        @media screen and (max-width: 768px){
+            width: 90%;
+            height: 90%;
+        }
+    }
+`;
+
 ```
 
 
 
-**Можно написать в виде вложенности и нутри стили написать разные логики**
+**Можно написать в виде вложенности и внутри стили написать разные логики**
 
 
 ```
@@ -90,3 +114,53 @@ const ColumnLeft = styled.div`
 
     `;
 ```
+
+- теги  h1, р они вложенные елементы div
+-  order: ${({ reverse }) => (reverse ? '2' : '1')} - как здесь видно используется стрелочная функция и троичный аператор.
+
+
+
+**Можно импортировать стили , написав их в отдельный файл**
+
+```
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+export const Button = styled(Link)`
+background: ${({ primary }) => (primary ? '#000d1a' : 'CD853F')};
+white-space: nowrap;
+outline: none;
+border: none;
+min-width: 100px;
+max-width: 200px;
+cursor: pointer;
+text-decoration: none;
+transition: .3s;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: ${({ big }) => (big ? '16px 40px' : '14px 24px')};
+color: ${({ primary }) => (primary ? "#fff" : "#000d1a")};
+font-size: ${({ big }) => (big ? "20px" : "14px")};
+&:hover {
+    transform: translateY(-2px);
+}
+`
+```
+
+
+_После им пользоваться в разных компонентах_
+
+```
+
+import { Button } from './Button';
+
+
+  <Button to={slide.path} primary='true'
+        css={`max-width: 160px;`}
+         >
+        {slide.label}
+        <Arrow />
+  </Button>
+```
+
